@@ -26,6 +26,7 @@
     display: inline-block;
     font-weight: 700;
     border: none;
+    border-radius: .8rem;
     transition-property: background-color;
     transition-duration: .3s;
     text-align: center;
@@ -37,6 +38,11 @@
     &:hover {
         background-color: darken( $bgColor, 10% );
         cursor: pointer;
+    }
+        /* Estilos del botón al hacer clic */
+    &:active {
+        transform: translateY(8px); /* Mover el botón ligeramente hacia abajo al hacer clic */
+        box-shadow: none; /* Quitar la sombra al hacer clic */
     }
 }
 

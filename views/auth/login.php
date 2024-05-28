@@ -1,6 +1,6 @@
-<div class="contenedor">
-    <h1>UpTask</h1>
-    <p>Crea y Administra tus Proyectos</p>
+<div class="contenedor login">
+    <h1 class="uptask">UpTask</h1>
+    <p class="tagline">Crea y Administra tus Proyectos</p>
 
     <div class="contenedor-sm">
         <p class="descripcion-pagina">Inicar Sesion</p>
@@ -17,7 +17,7 @@
             <input type="submit" class="boton" value="Iniciar Sesion">
         </form>
         <div class="acciones">
-            <a href="/crear">¿Aún no tienes una cuenta? Ontener una</a>
+            <a href="/crear">¿Aún no tienes una cuenta? Obtener una</a>
             <a href="/olvide">¿Olvidaste tu Password?</a>
         </div>
     </div><!-- contenedor-sm --->
