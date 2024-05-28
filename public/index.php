@@ -16,6 +16,18 @@ $router->get('/logout', [LoginController::class, 'logout']);
 $router->get('/crear', [LoginController::class, 'crear']);
 $router->post('/crear', [LoginController::class, 'crear']);
 
+// Formulario de olvide mi password
+$router->get('/olvide', [LoginController::class, 'olvide']);
+$router->post('/olvide', [LoginController::class, 'olvide']);
+
+// Colocar nuevo password
+$router->get('/reestablecer', [LoginController::class, 'reestablecer']);
+$router->post('/reestablecer', [LoginController::class, 'reestablecer']);
+
+// Confirmacion de cuenta
+$router->get('/mensaje', [LoginController::class, 'mensaje']);
+$router->get('/confirmar', [LoginController::class, 'confirmar']);
+
 
 // Comprueba y valida las rutas, que existan y les asigna las funciones del Controlador
 $router->comprobarRutas();
