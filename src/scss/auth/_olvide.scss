@@ -1,18 +1,18 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
 
-.crear{
+.olvide{
     margin-top: 5rem;
     .uptask{
-        @include m.textoDegradado(v.$morado, v.$azulM);
+        @include m.textoDegradado(v.$rosa, v.$azul);
     }
 
     input[type="submit"]{
-        @include m.boton(v.$moradoM, v.$blanco);
+        @include m.boton(v.$rosaM, v.$blanco);
     }
     .acciones{
         a{
-            color: v.$indigo;
+            color: v.$rosaM;
             font-weight: 700;
         }
     }
