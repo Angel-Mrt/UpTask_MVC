@@ -1,0 +1,29 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.alerta{
+    padding: 1rem 1rem 1rem 2rem;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    max-width: 80rem;
+    text-align: center;
+
+    &.error{
+        background-color: lighten( v.$rojo, 55%);
+        border-left: .6rem solid v.$rojo;
+        border-right: .6rem solid v.$rojo;
+        border-radius: .8rem;
+        color: v.$rojo;
+
+    }
+
+    &.exito{
+        background-color: lighten( v.$verde, 55%);
+        border-left: .6rem solid v.$verde;
+        border-right: .6rem solid v.$verde;
+        border-radius: .8rem;
+        color: v.$verde;
+    }
+}
