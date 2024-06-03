@@ -7,9 +7,11 @@
         @include m.textoDegradado(v.$naranja, v.$morado);
     }
     .descripcion-pagina{
-        background: linear-gradient(to right, v.$naranja 0%, darken(v.$moradoM,10%) 100%);
+        background-color: lighten( v.$naranja, 35%);
+        border-left: .6rem solid v.$naranja;
+        border-right: .6rem solid v.$naranja;
+        border-radius: .8rem;
         color: v.$negro;
-        font-weight: 800;
-        border-radius: 1.2rem;
+        font-weight: 900;
     }
 }
