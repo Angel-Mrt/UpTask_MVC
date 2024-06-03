@@ -2,6 +2,7 @@
     <?php include_once __DIR__ . '/../templates/nombre-sitio.php'; ?>
     <div class="contenedor-sm">
         <?php
+        include_once __DIR__ . '/../templates/alertas.php';
         $resultado = $_GET['resultado'] ?? '';
 
         if ($resultado === '1' || $resultado === '2' || $resultado === '3') {
@@ -19,7 +20,7 @@
 
         <p class="descripcion-pagina">Iniciar Sesion</p>
 
-        <form action="/" method="POST" class="formulario">
+        <form action="/" method="POST" class="formulario" novalidate>
             <div class="campo">
                 <label for="email">Email</label>
                 <input type="email" id="email" placeholder="Tu Email" name="email">

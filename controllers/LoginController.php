@@ -10,15 +10,41 @@ class LoginController
 {
     public static function login(Router $router)
     {
-
+        $alertas = [];
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $auth = new Usuario($_POST);
+
+            $alertas = $auth->validarLogin();
+
+            if (empty($alertas)) {
+                //Verificar que el usuario existe
+                $usuario = Usuario::where('email', $auth->email);
+
+                if ($usuario) {
+                    //verificar el password
+                    if ($usuario->comprobarPasswordAndVerificado($auth->password)) {
+                        //Verificar si no se ha declarado la super variable SESION
+                        iniciarSesion();
+
+                        $_SESSION['id'] = $usuario->id;
+                        $_SESSION['nombre'] = $usuario->nombre;
+                        $_SESSION['email'] = $usuario->email;
+                        $_SESSION['login'] = true;
+
+                        header('Location: /proyectos');
+                    }
+                } else {
+                    Usuario::setAlerta('error', 'El Usuario No Existe');
+                }
+            }
         }
 
-
+        $alertas = Usuario::getAlertas();
         // render a la vista
         $router->render('auth/login', [
-            'titulo' => 'Iniciar Sesion'
+            'titulo' => 'Iniciar Sesion',
+            'alertas' => $alertas
         ]);
     }
 

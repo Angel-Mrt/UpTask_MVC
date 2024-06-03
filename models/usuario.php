@@ -28,7 +28,21 @@ class Usuario extends ActiveRecord
         $this->token = $args['token'] ?? '';
         $this->confirmado = $args['confirmado'] ?? 0;
     }
-
+    //Validar el login de usuario
+    public function validarLogin()
+    {
+        if (!$this->email) {
+            self::$alertas['error'][] = 'El Email del Usuario es Obligatorio';
+        }
+        if (!filter_var($this->email, FILTER_VALIDATE_EMAIL)) {
+            self::$alertas['error'][] = 'Email No Válido';
+        }
+        if (!$this->password) {
+            self::$alertas['error'][] = 'El Password del Usuario es Obligatorio';
+        }
+        return self::$alertas;
+    }
+    //Validar cuentas nuevas
     public function validarNuevaCuenta()
     {
         if (!$this->nombre) {
@@ -50,6 +64,7 @@ class Usuario extends ActiveRecord
         return self::$alertas;
     }
 
+    //Valida los emails
     public function validarEmail()
     {
         if (!$this->email) {
@@ -88,5 +103,18 @@ class Usuario extends ActiveRecord
     {
         $this->token = uniqid();
         //$this->token = md5(uniqid());
+    }
+    public function comprobarPasswordAndVerificado($password)
+    {
+        //debuguear($password);
+        $resultado = password_verify($password, $this->password);
+        //debuguear($resultado);
+        if (!$this->confirmado) {
+            self::$alertas['error'][] = 'Cuenta no confirmada';
+        } else if (!$resultado) {
+            self::$alertas['error'][] = 'Contraseña Incorrecta';
+        } else {
+            return true;
+        }
     }
 }
