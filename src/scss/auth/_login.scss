@@ -8,11 +8,11 @@
     }
 
     input[type="submit"]{
-        @include m.boton(v.$verdeM, v.$blanco);
+        @include m.boton(v.$azulM, v.$blanco);
     }
     .acciones{
         a{
-            color: v.$verdeM;
+            color: v.$azulM;
             font-weight: 700;
         }
     }

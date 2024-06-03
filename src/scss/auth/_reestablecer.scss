@@ -4,7 +4,7 @@
 .reestablecer{
     margin-top: 5rem;
     .uptask{
-        @include m.textoDegradado(v.$cyan, v.$azul);
+        @include m.textoDegradado(v.$verde, v.$gris);
     }
 
     input[type="submit"]{
