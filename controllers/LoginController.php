@@ -32,7 +32,7 @@ class LoginController
                         $_SESSION['email'] = $usuario->email;
                         $_SESSION['login'] = true;
 
-                        header('Location: /proyectos');
+                        header('Location: /dashboard');
                     }
                 } else {
                     Usuario::setAlerta('error', 'El Usuario No Existe');
@@ -50,7 +50,9 @@ class LoginController
 
     public static function logout()
     {
-        echo 'desde login';
+        iniciarSesion();
+        $_SESSION = [];
+        header('Location: /');
     }
 
     public static function crear(Router $router)

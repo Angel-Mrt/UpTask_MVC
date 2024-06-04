@@ -1,0 +1,31 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dashboard {
+    background-color: v.$grisClaro;
+
+    @include m.tablet{
+        display: flex;
+        height: 100vh;
+    }
+    .principal{
+        flex: 1;
+    }
+    .contenido{
+        padding: 4rem;
+
+        .nombre-pagina{
+            font-size: 2.8rem;
+            text-align: center;
+        }
+    }
+    .formulario{
+
+        input[type="submit"]{
+            @include m.boton(v.$azulM, v.$blanco);
+            padding: 1.5rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }
+}
