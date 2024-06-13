@@ -23,9 +23,9 @@
 
         input[type="submit"]{
             @include m.boton(v.$azulM, v.$blanco);
-            padding: 1.5rem;
+            padding: 1.2rem;
             text-transform: uppercase;
-            font-weight: bold;
+            font-weight: 700;
         }
     }
 }

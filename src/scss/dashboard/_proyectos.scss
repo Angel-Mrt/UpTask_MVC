@@ -1,0 +1,55 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.contenedor-no-proyectos{
+    padding: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    .descripcion{
+        font-weight: 900;
+        font-size: 4rem;
+        text-align: center;
+    }
+    .crear-proyecto {
+        @include m.boton(v.$azulM, v.$blanco);
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-transform: uppercase;
+            
+        
+    }
+}
+.listado-proyectos{
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+    @include m.grid(1, 2rem);
+    @include m.tablet {
+        @include m.grid(2, 2rem);
+    }
+    @include m.desktop {
+        @include m.grid(3, 2rem);
+    }
+
+    .proyecto{
+        a{
+        @include m.boton(v.$azulM, v.$blanco);
+        background-color: lighten(v.$azulM, 5%);
+        min-height: 12rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        line-height: 2;
+        border-radius: .5rem;
+
+        &:hover{
+            background-color: darken(v.$azulM, 5%);
+        }
+            color: v.$blanco;
+        }
+    }
+}

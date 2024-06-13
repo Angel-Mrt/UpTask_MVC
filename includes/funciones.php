@@ -30,7 +30,7 @@ function iniciarSesion()
         // Inicia la sesión
         session_start();
     }
-}  
+}
 function mostrarNotificacion($resultado)
 {
     $mensaje = '';

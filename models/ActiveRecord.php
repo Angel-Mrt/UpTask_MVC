@@ -68,6 +68,14 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
+    // Busqueda de todos los registros que pertenecen a un Id
+    public static function belongsTo($columna, $valor)
+    {
+        $query = "SELECT * FROM " . static::$tabla . " WHERE {$columna} = '{$valor}'";
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // SQL para Consultas Avanzadas.
     public static function SQL($consulta) {
         $query = $consulta;
@@ -176,9 +184,9 @@ class ActiveRecord {
 
     public function sincronizar($args=[]) { 
         foreach($args as $key => $value) {
-          if(property_exists($this, $key) && !is_null($value)) {
+            if(property_exists($this, $key) && !is_null($value)) {
             $this->$key = $value;
-          }
+            }
         }
     }
 }
