@@ -9,3 +9,73 @@
         @include m.boton(v.$cyan, v.$blanco);
     }
 }
+.listado-tareas{
+    list-style: none;
+    padding: 0;
+    margin-top: 3rem;
+    .no-tareas{
+        text-align: center;
+        font-weight: 700;
+        font-size: 5rem;
+        color: v.$gris;
+    }
+}
+.tarea{
+    padding: .5rem 2rem; // .5rem arriba y abajo y 2rem izq derecha
+    border-bottom: 2px solid darken(v.$grisClaro, 5%);
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;//centrar Horizontalmente
+
+    &:last-of-type{
+        border: none;
+    }
+    p{
+        font-size: 1.8rem;
+        max-width: 50%;
+    }
+    .opciones{
+        display: flex;
+        gap: 1rem;
+        button{
+            border: none;
+            font-size: 1.4rem;
+            padding: .5rem 1rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            border-radius: 1rem;
+
+            &:hover {
+            cursor: pointer;
+            }
+             /* Estilos del botón al hacer clic */
+            &:active {
+            transform: translateY(8px); /* Mover el botón ligeramente hacia abajo al hacer clic */
+            box-shadow: none; /* Quitar la sombra al hacer clic */
+            }
+        }
+        .completa{
+            background-color: v.$azul;
+            color: v.$blanco;
+            &:hover {
+                background-color: darken( v.$azul, 10% );
+            }
+        }
+        .pendiente{
+            background-color: v.$naranja;
+            color: v.$blanco;
+            &:hover {
+            background-color: darken( v.$naranja, 10% );
+            }
+        }
+        .eliminar-tarea{
+            background-color: v.$rojo;
+            color: v.$blanco;
+
+            &:hover {
+            background-color: darken( v.$rojo, 10% );
+            }
+        }
+    }
+}
