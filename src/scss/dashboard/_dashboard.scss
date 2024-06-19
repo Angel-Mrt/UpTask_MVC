@@ -3,6 +3,7 @@
 
 .dashboard {
     background-color: v.$grisClaro;
+    height: 100vh;
 
     @include m.tablet{
         display: flex;
@@ -29,6 +30,16 @@
             padding: 1.2rem;
             text-transform: uppercase;
             font-weight: 700;
+        }
+    }
+    .enlace{
+        @include m.boton (v.$azulM, v.$blanco);
+        border-radius: .8rem;
+        padding: .5rem 1rem;
+        display: inline-block;
+        font-weight: 550;
+        &:hover{
+            font-weight: 600;
         }
     }
 }
