@@ -63,3 +63,14 @@
             font-size: 10rem;
         }
 }
+@mixin textoDegradadoDark($color, $degradado){
+        background: linear-gradient(to right, $color 0%, lighten($degradado,10%) 100%);
+        color: transparent;
+        background-clip: text;
+        text-align: center;
+        font-size: 7rem;
+
+        @include tablet{
+            font-size: 10rem;
+        }
+}

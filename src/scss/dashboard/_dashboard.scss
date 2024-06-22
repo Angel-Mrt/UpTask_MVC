@@ -12,7 +12,7 @@
     .principal{
         flex: 1;
         @include m.tablet {
-            overflow: scroll;
+            overflow: auto;
         }
     }
     .contenido{
