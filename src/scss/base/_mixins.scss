@@ -26,6 +26,7 @@
     display: inline-block;
     font-weight: 700;
     border: none;
+    border-radius: .7rem;
     transition-property: background-color;
     transition-duration: .3s;
     text-align: center;
@@ -38,10 +39,38 @@
         background-color: darken( $bgColor, 10% );
         cursor: pointer;
     }
+        /* Estilos del botón al hacer clic */
+    &:active {
+        transform: translateY(8px); /* Mover el botón ligeramente hacia abajo al hacer clic */
+        box-shadow: none; /* Quitar la sombra al hacer clic */
+    }
 }
 
 @mixin grid($columnas, $espaciado ) {
     display: grid;
     gap: $espaciado;
     grid-template-columns: repeat($columnas, 1fr);
+}
+
+@mixin textoDegradado($color, $degradado){
+        background: linear-gradient(to right, $color 0%, darken($degradado,40%) 100%);
+        color: transparent;
+        background-clip: text;
+        text-align: center;
+        font-size: 7rem;
+
+        @include tablet{
+            font-size: 10rem;
+        }
+}
+@mixin textoDegradadoDark($color, $degradado){
+        background: linear-gradient(to right, $color 0%, lighten($degradado,10%) 100%);
+        color: transparent;
+        background-clip: text;
+        text-align: center;
+        font-size: 7rem;
+
+        @include tablet{
+            font-size: 10rem;
+        }
 }
