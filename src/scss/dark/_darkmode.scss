@@ -15,6 +15,7 @@
     .login .acciones a,
     .crear .acciones a,
     .olvide .acciones a,
+    .reestablecer .acciones a,
     .nombre-pagina
     {
         color: darken(v.$grisClaro,15%);
@@ -108,5 +109,38 @@
         input[type="submit"]{
             @include m.boton(lighten(v.$moradoM, 20%), v.$blanco);
         }
+    }
+    .mensaje{
+        .uptask{
+            @include m.textoDegradadoDark(v.$naranja, v.$morado);
+        }
+        .descripcion-pagina{
+        background-color: #71614c;
+        border-left: .6rem solid v.$naranja;
+        border-right: .6rem solid v.$naranja;
+        border-radius: .8rem;
+        color: v.$grisClaro;
+        font-weight: 700;
+        }
+    }
+    .confirmar{
+        .uptask{
+            @include m.textoDegradadoDark(v.$verde, v.$azul);
+        }
+        .acciones a{
+            background: linear-gradient(to right, v.$verde 0%, lighten(v.$azulM,10%) 100%);
+            color: v.$blanco;
+            font-weight: 800;
+            border-radius: 1.2rem;
+            padding: 1.5rem 4rem;
+        }
+    }
+    .reestablecer{
+    .uptask{
+        @include m.textoDegradadoDark(v.$verdeM, v.$gris);
+    }
+    input[type="submit"]{
+        @include m.boton(#20611b, v.$blanco);
+    }
     }
 }
