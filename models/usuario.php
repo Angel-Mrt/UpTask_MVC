@@ -16,6 +16,8 @@ class Usuario extends ActiveRecord
     public $email;
     public $password;
     public $password2;
+    public $password_actual;
+    public $password_nuevo;
     public $token;
     public $confirmado;
 
@@ -27,6 +29,8 @@ class Usuario extends ActiveRecord
         $this->email = $args['email'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->password2 = $args['password2'] ?? null;
+        $this->password_actual = $args['password_actual'] ?? '';
+        $this->password_nuevo = $args['password_nuevo'] ?? '';
         $this->token = $args['token'] ?? '';
         $this->confirmado = $args['confirmado'] ?? 0;
     }
@@ -104,6 +108,25 @@ class Usuario extends ActiveRecord
         return self::$alertas;
     }
 
+    public function nuevo_password(): array
+    {
+        if (!$this->password_actual) {
+            self::$alertas['error'][] = 'El Password Actual no puede ir vacio';
+        }
+        if (!$this->password_nuevo) {
+            self::$alertas['error'][] = 'El Password Nuevo no puede ir vacio';
+        }
+        if (strlen($this->password_nuevo) < 6) {
+            self::$alertas['error'][] = 'El Password debe contener al menos 6 caracteres';
+        }
+        return self::$alertas;
+    }
+
+    // Comprobar el password
+    public function comprobar_password(): bool
+    {
+        return password_verify($this->password_actual, $this->password);
+    }
 
     //Hashea el Password
     public function hashPassword()
